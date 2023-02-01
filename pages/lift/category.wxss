@@ -1,0 +1,15 @@
+/* pages/lift/category.wxss */
+.keti{
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-content: center;
+}
+.keti.huoti{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+
+}

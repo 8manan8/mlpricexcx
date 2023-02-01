@@ -1,0 +1,51 @@
+<!--pages/lift/keti/keti.wxml-->
+
+
+
+
+
+<view class="section__keti_model">
+  <view ></view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+    value="{{multiIndex}}" range="{{newArr}}">
+    <view class="picker">
+      梯种选择: <van-button type="primary">
+      <view>  是否有机房: {{newArr[0][multiIndex[0]]}}，</view>
+     <view> 梯型:{{newArr[1][multiIndex[1]]}}，</view>
+     <view>其他:{{newArr[2][multiIndex[2]]}}</view>
+       </van-button>
+    </view>
+  </picker>
+</view>
+<view class="section__keti_main">
+  <view ></view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+    value="{{multiIndex}}" range="{{newArr}}">
+    <view class="picker">
+      主参数: <van-button type="primary">
+      <view>  载重: {{newArr[0][multiIndex[0]]}}，</view>
+     <view> 速度:{{newArr[1][multiIndex[1]]}}，</view>
+     <view>层站:{{newArr[2][multiIndex[2]]}}</view>
+       </van-button>
+    </view>
+  </picker>
+</view>
+<view class="section_keti_guantong">
+<text>贯通:</text>
+  <!-- 下拉框 -->
+  <view class='guantong_select_box'>
+      <view class='guantong_select' catchtap='guantong_selectTaps'>
+        <text class='guantong_select_text'>{{guantong_datas[guantong_indexs]}}</text>
+        <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
+        
+         <!-- 下拉框 图片  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image> -->
+      </view>
+      <view class='guantong_option_box' style='height:{{guantong_shows?(guantong_datas.length>5?300:guantong_datas.length*60):0}}rpx;'>
+        <text class='guantong_option' style='{{guantong_indexs==guantong_datas.length-1&&"border:0;"}}' wx:for='{{guantong_datas}}' wx:key='this' data-guantong_index='{{index}}' catchtap='guantong_optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
+<view class="H">
+<text>顶层高度：</text>
+<input/>
+</view>

@@ -1,0 +1,23 @@
+{
+    "pages": [
+        "pages/lift/category",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/lift/keti/keti"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "梅轮快速报价小程序",
+        "navigationBarTextStyle": "black"
+      
+    },
+    "tabBar": {
+      "color": "#666666",
+      "selectedColor": "#000000",
+      "list": [{"pagePath": "pages/lift/category","text": "询价"},{"pagePath": "pages/index/index","text": "其他测试"}]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}
