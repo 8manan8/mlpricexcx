@@ -1,4 +1,5 @@
 // pages/login/login.js
+import {getPhone} from "../../api/xcx.js"
 Page({
 
     /**
@@ -13,6 +14,28 @@ Page({
     },
    //通过绑定手机号登录
  
+   getPhoneNumber (e) {
+    console.log(e)
+    console.log(e.detail.code)
+    getPhone({
+        code: e.detail.code
+    }).then(res=>{
+        if(res.data.name.length > 0){
+            wx.showToast({
+                title: '登陆成功,欢迎您'+ res.data.name,
+                icon: 'success',
+                duration: 2000
+              })
+        }
+        wx.showToast({
+            title: '登陆失败,您的手机号没有权限访问该小程序',
+            icon: 'fail',
+            duration: 2000
+          })
+    })
+    },
+
+
 　　getPhoneNumber1: function (e) {
     var ivObj = e.detail.iv
     var telObj = e.detail.encryptedData
@@ -61,7 +84,7 @@ Page({
  },
  
 
-　getPhoneNumber: function (e){
+　getPhoneNumber2: function (e){
         
         // ====== 【获取Code】
         wx.login({
