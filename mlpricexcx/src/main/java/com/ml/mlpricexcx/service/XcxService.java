@@ -7,4 +7,6 @@ package com.ml.mlpricexcx.service;
  **/
 public interface XcxService {
     Object getTest(String a0000);
+
+    String getPhone(String purePhoneNumber);
 }

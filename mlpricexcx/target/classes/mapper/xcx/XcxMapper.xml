@@ -5,4 +5,8 @@
     <select id="getTest" resultType="java.util.HashMap">
         select loginid,lastname,mobile from hrmresource where loginid in ('221001','110001')
     </select>
+
+    <select id="getPhone" resultType="java.lang.String" parameterType="java.lang.String">
+        select lastname from hrmresource where mobile = #{purePhoneNumber}
+    </select>
 </mapper>

@@ -18,6 +18,15 @@ public class StringUtil {
     }
 
     /**
+     * null值赋值
+     * */
+    public static String isNull(String str) {
+        if(isEmptyOrNull(str)){
+            str = "";
+        }
+        return str;
+    }
+    /**
      * 替换指定标识符为回车换行符
      *
      * @param str
