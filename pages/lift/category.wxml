@@ -3,7 +3,8 @@
 <view class="keti" bindtap="selectketi">
 <image src="{{keti}}" bindtap="selectketi"></image>
 <text class="keti" bindtap="selectketi">乘客电梯</text>
-<button bindtap="selectketi">乘客电梯button</button>
+<!--<button bindtap="selectketi">乘客电梯button</button>-->
+
 </view>
 <view class="huoti">
  <image src="{{huoti}}" bindtap="selecthuoti"></image>

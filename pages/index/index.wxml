@@ -1,4 +1,68 @@
 <!--index.wxml-->
+ <!-- 测试 tab3次切换 -->
+ <view>
+    <!-- Tab布局 -->
+    <view class='navBox'>
+        <view class='titleBox' bindtap='titleClick' data-idx='0'>
+            <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">土建参数</text>
+            <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+        </view>
+         
+        <view class='titleBox' bindtap='titleClick' data-idx='1'>
+            <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">土建说明</text>
+            <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
+       
+    </view>
+    <!-- 内容布局 -->
+    <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+        <swiper-item class='swiperTtemBox'>
+         
+  <view class="section_keti_guantong">
+<text>梯型:</text>
+  <!-- 下拉框 -->
+  <view class='guantong_select_box'>
+      <view class='guantong_select' catchtap='model_s_selectTaps'>
+        <text class='guantong_select_text'>{{MODEL_S[MODEL_S_index]}}</text>
+        <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
+         <!-- 下拉框 图片  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image> -->
+      </view>
+      <view class='guantong_option_box' style='height:{{MODEL_S_shows?(MODEL_S.length>5?300:MODEL_S.length*60):0}}rpx;'>
+        <text class='guantong_option' style='{{MODEL_S_index==MODEL_S.length-1&&"border:0;"}}' wx:for='{{MODEL_S}}' wx:key='this' data-modelsindex='{{index}}' catchtap='model_s_optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
+<!--井道信息-->
+<view class="itemView">井道宽度：
+<!--  bindinput ="userNameInput"-->
+    <input class="input" name="userName" type="number" placeholder="请输入井道宽度"
+    bindinput ="HWInput"/>
+  </view>
+<view class="itemView">井道深度：
+    <!-- <input class="input" password placeholder="请输入密码"  -->
+    <input class="input"   type="number" placeholder="请输入井道深度"
+     bindinput="HDInput" />
+  </view>
+<view class="viewName" style="background-color:#fbf9fe">
+  <button class="loginBtn" bindtap="loginBtnClick">查看轿厢信息</button>
+</view>
+
+            
+        </swiper-item>
+         
+        <swiper-item class='swiperTtemBox'>
+            <view>说明:</view>
+            <view>1.选择梯型</view>
+            <view>2.输入井道宽度，井道深度</view>
+            <view>3.点击查看轿厢信息获取适合的轿厢尺寸</view>
+        </swiper-item>
+         
+    </swiper>
+</view>
+
+<!--测试结束-->
+
+
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
@@ -21,3 +85,4 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
+ 

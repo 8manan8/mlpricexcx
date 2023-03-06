@@ -1,32 +1,13 @@
-// pages/lift/category.js
+// pages/lift/keti/info/info.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        keti:"/pages/image/keti2.jpg",
-        huoti:"/pages/image/huoti.jpg"
 
     },
-    /*
-    选择客梯
-    */
-    selectketi:function(){
-       wx.navigateTo({
-       
-         url: '../lift/keti/keti'
-       })
-    },
-   /*
-    选择客梯
-    */
-   selecthuoti:function(){
-    wx.navigateTo({
-    
-      url: '../lift/huoti/huoti'
-    })
- },
+
     /**
      * 生命周期函数--监听页面加载
      */

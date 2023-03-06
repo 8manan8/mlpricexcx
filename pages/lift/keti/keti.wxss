@@ -99,8 +99,294 @@ border: 3rpx solid lightgrey;
   /*
   顶层高度
   */
-  .H{
+  .K{
 display: flex;
 flex-direction: row;
 border: 3rpx solid lightgrey;
   }
+
+  /* 载重 */
+.section_keti_dl{
+    margin: 10 25rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+    display: flex;
+    align-items: center;
+  }
+  .section_keti_dl text{
+    font-size: 35rpx;
+    color: #999999;
+    margin-left: 15rpx;
+  }
+  /* 下拉框 */
+  .dl_select_box {
+    background: #fff;
+    width: 620rpx;
+    /* margin: 0 auto; */
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: left;
+    position: relative;
+  }
+   
+  .dl_select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 86rpx;
+    /* border: 1px solid #efefef; */
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+  }
+   
+  .dl_select_text {
+    font-size: 28rpx;
+    flex: 1;
+    color: rgb(102, 102, 102);
+    line-height: 86rpx;
+    height: 86rpx;
+  }
+   
+  .select_img {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    transition: transform 0.3s;
+  }
+   
+  .select_img_rotate {
+    transform: rotate(180deg);
+  }
+   
+  .dl_option_box {
+    position: absolute;
+    top: 86rpx;
+    width: 100%;
+    /* border: 1px solid #efefef; */
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+    z-index: 100;
+  }
+   
+  .dl_option {
+    display: block;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 10rpx;
+    color: rgb(102, 102, 102);
+  }
+
+  /*
+  测试页签滑动
+  */
+  
+  /*
+  测试页签滑动
+  */
+  
+  Page {
+    /* 全局样式 */
+    background: rgb(244, 245, 249);
+    height: 100%;
+    position: fixed;
+}
+
+.fontColorBox,
+.fontColorBox1,
+.fontColorBox2,
+.fontColorBox3 {
+    /* 文字默认颜色 */
+    color: black;
+}
+
+.navBox {
+    /* 顶部tab盒子样式 */
+    width: 100%;
+    height: 108rpx;
+    background: white;
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.navBox view:last-child {
+    /* 最后一个tab标题的样式   */
+    padding-left: 0%;
+  
+}
+
+.titleBox {
+    /* 未选中文字的样式 */
+    color: rgb(168, 170, 175);
+    font-size: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lineBox,.notLineBox{
+    /* 选中及未选中底线共同样式 */
+    width: 32rpx;
+    height: 8rpx;
+}
+
+.lineBox {
+    /* 选中底线样式 */
+    background: rgb(43, 44, 45);
+    margin-top: 16rpx;
+    border-radius: 4rpx;
+}
+
+.notLineBox {
+    /* 未选中底线样式 */
+    background: transparent;
+}
+
+.swiperTtemBox {
+    /* 底部内容样式 */
+    height: 100vh;
+    overflow: scroll;
+    margin: 12rpx 0rpx;
+    background: white;
+    font-size: 28rpx;
+}
+
+/*轿厢装潢  开始 */
+  /* 轿厢装潢 */
+  .section_keti_jxxh{
+    margin: 10 25rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+  }
+  .section_keti_jxxh text{
+    font-size: 35rpx;
+    color: #999999;
+    margin-left: 15rpx;
+  }
+  /* 下拉框 */
+  .jxxh_select_box {
+    background: #fff;
+    width: 300rpx;               /* 500 */
+    /* margin: 0 auto; */
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: left;
+    position: relative;
+  }
+   
+  .jxxh_select {
+    box-sizing: border-box;
+    width: 100%;        /* 100% */
+    height: 86rpx;
+    /* border: 1px solid #efefef; */
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+  }
+   
+  .jxxh_select_text {
+    font-size: 28rpx;
+    flex: 1;
+    color: rgb(102, 102, 102);
+    line-height: 86rpx;
+    height: 86rpx;
+  }
+   
+  
+   
+  .jxxh_option_box {
+    position:absolute;
+    top: 86rpx;
+    width: 100%;          /* 100% */
+    /* border: 1px solid #efefef; */
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    border-top: 0;
+    background: #fff;
+    transition: height 0.3s;
+    z-index: 100;
+  }
+   
+  .jxxh_option {
+    display: block;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    border-bottom: 1px solid #efefef;
+    padding: 10rpx;
+    color: rgb(102, 102, 102);
+  }
+  /*轿厢装潢 结束*/
+
+  /* 价格开始 */
+  .section_keti_price
+  {
+    margin: 10 25rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    font-size: 35rpx;
+   
+  }
+    /* 价格结束 */
+
+/*单元框样式  开始*/
+/* 单选框样式 */
+   /* 初始样式 */
+   radio .wx-radio-input{
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 0
+   
+   }
+   /* 选中后的 背景样式 （ 背景 边框 ） */
+   radio .wx-radio-input.wx-radio-input-checked{
+    width: 32rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 32rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+     
+    background:white!important;
+   }
+   /* 选中后的 对勾样式  */
+   radio .wx-radio-input.wx-radio-input-checked::before{
+     
+    width: 32rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 32rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 32rpx;
+    text-align: center;
+    font-size:36rpx; /* 对勾大小 */
+    color:black; /* 对勾颜色  */
+     
+    background: white;
+    transform:translate(-50%, -50%) scale(1);
+    -webkit-transform:translate(-50%, -50%) scale(1);
+   }
+
+/*单元框样式  结束*/
+
+/*选配页签*/
+ .xuanpei_jx{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    
+
+
+}
+ 
+
+  

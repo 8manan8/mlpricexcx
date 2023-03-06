@@ -1,43 +1,70 @@
 <!--pages/lift/keti/keti.wxml-->
+  <!-- 测试 tab3次切换 -->
+  <view>
+    <!-- Tab布局 -->
+    <view class='navBox'>
+        <view class='titleBox' bindtap='titleClick' data-idx='0'>
+            <text class="{{0 == currentIndex ? 'fontColorBox' : ''}}">基价</text>
+            <hr class="{{0 == currentIndex ? 'lineBox' : 'notLineBox'}}" />
+        </view>
+        <view class='titleBox' bindtap='titleClick' data-idx='1'>
+            <text class="{{1 == currentIndex ? 'fontColorBox1' : ''}}">装潢</text>
+            <hr class="{{1 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
 
-
-
-
-
-<view class="section__keti_model">
-  <view ></view>
+        <view class='titleBox' bindtap='titleClick' data-idx='2'>
+            <text class="{{2 == currentIndex ? 'fontColorBox2' : ''}}">选配</text>
+            <hr class="{{2 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
+        <view class='titleBox' bindtap='titleClick' data-idx='3'>
+            <text class="{{3 == currentIndex ? 'fontColorBox3' : ''}}">其他</text>
+            <hr class="{{3 == currentIndex ? 'lineBox' : 'notLineBox'}} " />
+        </view>
+    </view>
+    <!-- 内容布局 -->
+    <swiper class='swiperTtemBox' bindchange='pagechange' current='{{currentIndex}}'>
+        <swiper-item class='swiperTtemBox'>
+         <!--基价页签开始-->
+  <!-- 三级联动 改成下来梯型
+     <view class="section__keti_model">
+     <view ></view>
   <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
     value="{{multiIndex}}" range="{{newArr}}">
     <view class="picker">
       梯种选择: <van-button type="primary">
-      <view>  是否有机房: {{newArr[0][multiIndex[0]]}}，</view>
-     <view> 梯型:{{newArr[1][multiIndex[1]]}}，</view>
-     <view>其他:{{newArr[2][multiIndex[2]]}}</view>
+      <view data-selectjifang=' {{newArr[0][multiIndex[0]]}}'>  是否有机房: {{newArr[0][multiIndex[0]]}}，</view>
+     <view data-select_model> 梯型:{{newArr[1][multiIndex[1]]}}，</view>
+     <view>备注:{{newArr[2][multiIndex[2]]}}</view>
        </van-button>
     </view>
   </picker>
+ 
 </view>
-<view class="section__keti_main">
-  <view ></view>
-  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
-    value="{{multiIndex}}" range="{{newArr}}">
-    <view class="picker">
-      主参数: <van-button type="primary">
-      <view>  载重: {{newArr[0][multiIndex[0]]}}，</view>
-     <view> 速度:{{newArr[1][multiIndex[1]]}}，</view>
-     <view>层站:{{newArr[2][multiIndex[2]]}}</view>
-       </van-button>
-    </view>
-  </picker>
-</view>
+ 三级联动 改成下来梯型--> 
+<!--梯型  开始-->
 <view class="section_keti_guantong">
+<text>梯型:</text>
+  <!-- 下拉框 -->
+  <view class='guantong_select_box'>
+      <view class='guantong_select' catchtap='model_s_selectTaps'>
+        <text class='guantong_select_text'>{{MODEL_S[MODEL_S_index]}}</text>
+        <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
+         <!-- 下拉框 图片  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image> -->
+      </view>
+      <view class='guantong_option_box' style='height:{{MODEL_S_shows?(MODEL_S.length>5?300:MODEL_S.length*60):0}}rpx;'>
+        <text class='guantong_option' style='{{MODEL_S_index==MODEL_S.length-1&&"border:0;"}}' wx:for='{{MODEL_S}}' wx:key='this' data-modelsindex='{{index}}' catchtap='model_s_optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
+<!--梯型 结束-->
+  <!-- 贯通 -->
+  <view class="section_keti_guantong">
 <text>贯通:</text>
   <!-- 下拉框 -->
   <view class='guantong_select_box'>
       <view class='guantong_select' catchtap='guantong_selectTaps'>
         <text class='guantong_select_text'>{{guantong_datas[guantong_indexs]}}</text>
         <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
-        
          <!-- 下拉框 图片  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image> -->
       </view>
       <view class='guantong_option_box' style='height:{{guantong_shows?(guantong_datas.length>5?300:guantong_datas.length*60):0}}rpx;'>
@@ -45,7 +72,176 @@
       </view>
     </view>
 </view>
-<view class="H">
-<text>顶层高度：</text>
-<input/>
+<!-- 载重 -->
+<view  class="section_keti_dl">
+<text>载重:</text>
+<!-- 下拉框 -->
+<view  class='dl_select_box'>
+<view  class='dl_select' catchtap="dl_selectTaps">
+<text class='dl_select_text' >{{DL[DL_index]}}</text>
 </view>
+<view class='dl_option_box' style='height:{{DL_shows?(DL.length>5?300:DL.length*60):0}}rpx;' >
+<text class='dl_option' style='{{DL_index==DL.length-1&&"border:0;"}}' wx:for="{{DL}}" wx:key="this" data-dlindex1='{{index}}'  catchtap ='dl_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+  <!-- 速度 -->
+  <view  class="section_keti_dl">
+<text>速度:</text>
+<!-- 下拉框 -->
+<view  class='dl_select_box'>
+<view  class='dl_select' catchtap="v_selectTaps">
+<text class='dl_select_text' >{{V[V_index]}}</text>
+</view>
+<view class='dl_option_box' style='height:{{V_shows?(V.length>5?300:DL.length*60):0}}rpx;' >
+<text class='dl_option' style='{{V_index==V.length-1&&"border:0;"}}' wx:for="{{V}}" wx:key="this" data-vindex1='{{index}}'  catchtap ='v_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+  <!-- 层站 -->
+  <view  class="section_keti_dl">
+<text>层站: </text>
+<!-- 下拉框 -->
+<view  class='dl_select_box'>
+<view  class='dl_select' catchtap="f_selectTaps">
+<text class='dl_select_text' >{{F[F_index]}}</text>
+</view>
+<view class='dl_option_box' style='height:{{F_shows?(F.length>5?300:F.length*60):0}}rpx;'>
+<text class='dl_option' style='{{F_index==F.length-1&&"border:0;"}}' wx:for="{{F}}" wx:key="this" data-findex1='{{index}}'  catchtap ='f_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+  <!-- 厅门 -->
+  <view  class="section_keti_dl">
+<text>厅门: </text>
+<!-- 下拉框 -->
+<view  class='dl_select_box'>
+<view  class='dl_select' catchtap="nbld_selectTaps">
+<text class='dl_select_text' >{{NBLD[NBLD_index]}}</text>
+</view>
+<view class='dl_option_box' style='height:{{NBLD_shows?(NBLD.length>5?300:NBLD.length*60):0}}rpx;' >
+<text class='dl_option' style='{{NBLD_index==NBLD.length-1&&"border:0;"}}' wx:for="{{NBLD}}" wx:key="this" data-nbldindex1='{{index}}'  catchtap ='nbld_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+ 
+ 
+
+<!--顶层高度-->
+<view class="K">
+<text>顶层高度:</text>
+<text>{{K}}</text>
+</view>
+<view class="Rise">
+<text>提升高度:</text>
+<text>{{R}}</text>
+</view>
+<view class="S">
+<text>底坑深度:</text>
+<text>{{S}}</text>
+</view>
+<view class="S">
+<text>设备基价:</text>
+<text>{{select_baseprice}}</text>
+</view>
+<view >
+<text>装潢总价:</text>
+<text>{{zh_amount}}</text>
+</view>
+<view >
+<text>选配总价:{{xuanpei_amount}}</text>
+<text></text>
+</view>
+<view >
+<text>折扣:</text>
+<text></text>
+</view>
+<button bindtap="select_paras"  >总价:{{TOTAL_AMOUNT}}</button>
+ </swiper-item>
+ <!--基价页签结束-->
+        <swiper-item class='swiperTtemBox'>
+         <!-- <view>装潢页签</view> -->
+            
+ <!-- 轿厢型号  开始 -->
+<view  class="section_keti_jxxh">
+<text>轿厢型号:</text>
+<text>(加价:{{JXXH_price}})</text>
+<!-- 下拉框 -->
+<view  class='jxxh_select_box'>
+<view  class='jxxh_select' catchtap="jxxh_selectTaps">
+<text class='jxxh_select_text' >{{JXXH[JXXH_index]}}</text>
+</view>
+<view class='jxxh_option_box' style='height:{{JXXH_shows?(JXXH.length>5?300:JXXH.length*60):0}}rpx;' >
+<text class='jxxh_option' style='{{JXXH_index==JXXH.length-1&&"border:0;"}}' wx:for="{{JXXH}}" wx:key="this" data-jxxhindex1='{{index}}'  catchtap ='jxxh_optionTaps'>{{item}}</text>
+
+</view>
+</view>
+</view>
+<!-- 轿厢型号 结束-->
+<!-- 操纵箱型号  开始 -->
+<view  class="section_keti_jxxh">
+<text>操纵箱型号:</text>
+<text>(加价:{{COPTYPE_price}})</text>
+<!-- 下拉框 -->
+<view  class='jxxh_select_box'>
+<view  class='jxxh_select' catchtap="coptype_selectTaps">
+<text class='jxxh_select_text' >{{COPTYPE[COPTYPE_index]}}</text>
+</view>
+<view class='jxxh_option_box' style='height:{{COPTYPE_shows?(COPTYPE.length>5?300:COPTYPE.length*60):0}}rpx;' >
+<text class='jxxh_option' style='{{COPTYPE_index==COPTYPE.length-1&&"border:0;"}}' wx:for="{{COPTYPE}}" wx:key="this" data-coptypeindex1='{{index}}'  catchtap ='coptype_optionTaps'>{{item}}</text>
+
+</view>
+</view>
+</view>
+<!-- 操纵箱型号 结束-->
+
+<view class='section_keti_price'><text>装潢加价汇总:</text> <text>{{zh_amount}}</text> </view>
+        </swiper-item>
+        <swiper-item class='swiperTtemBox'>
+            <view>
+            <!--选配页签  --> 
+            <view class="xuanpei_jx">  
+             <radio checked='{{HDRL1_check}}' id="radios" bindtap='radiocon1'></radio><label for="radios">轿厢左侧扶手</label>
+             <radio checked='{{HDRL2_check}}' id="radios" bindtap='radiocon2'></radio><label for="radios">轿厢右侧扶手</label>
+            
+            </view>
+            <view class="xuanpei_jx">  
+             <radio checked='{{HDRL1_check}}' id="radios" bindtap='radiocon1'></radio><label for="radios">轿厢后侧扶手</label>
+             <radio checked='{{HDRL2_check}}' id="radios" bindtap='radiocon2'></radio><label for="radios">超级管理 卡</label>
+            
+            </view>
+
+         
+            
+            </view>
+        </swiper-item>
+        <swiper-item class='swiperTtemBox'>
+           <view>说明:</view>
+            <view>          
+            <label> 1在基价页签选择梯型、载重、速度等参数；</label> 
+           </view>
+           <view>          
+            <label> 2在装潢页签选择需要的装潢；</label> 
+           </view>
+           <view>          
+            <label> 3在选配页签选择需要的选装的配置；</label> 
+           </view>
+           <view>          
+            <label> 4.在基价页签点击总价按钮即可获取总价；</label> 
+           </view>
+           
+            
+        </swiper-item>
+
+
+    </swiper>
+</view>
+<!--以上测试页签滑动-->
+ 
+
+
+
+
+
+
+

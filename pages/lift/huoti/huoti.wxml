@@ -1,0 +1,45 @@
+<!--pages/lift/huoti/huoti.wxml-->
+<view class="section_keti_guantong">
+<text>梯型:</text>
+  <!-- 下拉框 -->
+  <view class='guantong_select_box'>
+      <view class='guantong_select' catchtap='model_s_selectTaps'>
+        <text class='guantong_select_text'>{{MODEL_S[MODEL_S_index]}}</text>
+        <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
+         <!-- 下拉框 图片  <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image> -->
+      </view>
+      <view class='guantong_option_box' style='height:{{MODEL_S_shows?(MODEL_S.length>5?300:MODEL_S.length*60):0}}rpx;'>
+        <text class='guantong_option' style='{{MODEL_S_index==MODEL_S.length-1&&"border:0;"}}' wx:for='{{MODEL_S}}' wx:key='this' data-modelsindex='{{index}}' catchtap='model_s_optionTaps'>{{item}}</text>
+      </view>
+    </view>
+</view>
+<!-- 载重 -->
+<view  class="section_keti_guantong">
+<text>载重:</text>
+<!-- 下拉框 -->
+<view  class='guantong_select_box'>
+<view  class='guantong_select' catchtap="dl_selectTaps">
+<text class='guantong_select_text' >{{DL[DL_index]}}</text>
+</view>
+<view class='guantong_option_box' style='height:{{DL_shows?(DL.length>5?300:DL.length*60):0}}rpx;' >
+<text class='guantong_option' style='{{DL_index==DL.length-1&&"border:0;"}}' wx:for="{{DL}}" wx:key="this" data-dlindex1='{{index}}'  catchtap ='dl_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+
+  <!-- 速度 -->
+  <view  class="section_keti_guantong">
+<text>速度:</text>
+<!-- 下拉框 -->
+<view  class='guantong_select_box'>
+<view  class='guantong_select' catchtap="v_selectTaps">
+<text class='guantong_select_text' >{{V[V_index]}}</text>
+</view>
+<view class='guantong_option_box' style='height:{{V_shows?(V.length>5?300:DL.length*60):0}}rpx;' >
+<text class='guantong_option' style='{{V_index==V.length-1&&"border:0;"}}' wx:for="{{V}}" wx:key="this" data-vindex1='{{index}}'  catchtap ='v_optionTaps'>{{item}}</text>
+</view>
+</view>
+</view>
+<view>
+<button bindtap="get_amount">总价:{{TOTAL_AMOUNT}}</button>
+</view>
