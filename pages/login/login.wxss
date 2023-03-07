@@ -1,1 +1,11 @@
 /* pages/login/login.wxss */
+
+.row {
+    text-align: center;
+    line-height: 1.6em;
+    /* text-indent: 2em; */
+    font-size: 32rpx;
+    padding: 20rpx 0;
+    border-bottom: 1rpx dashed var(--themeColor);
+    color: var(--focusColor)
+}

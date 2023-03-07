@@ -1,4 +1,5 @@
-const baseURL = 'http://127.0.0.1:9098';
+const baseURL = 'http://127.0.0.1:9011';
+// const baseURL = 'https://api.zjml.cc:9011';
 
 export function request(params){
   
@@ -14,20 +15,20 @@ export function request(params){
       data:dataObj,
       header:headerObj,
       success:res=>{
-        if(res.data.errCode!=0){
-          reject(res.data);
-          wx.showToast({
-            title: res.data.errMsg,
-            mask:true,
-            icon:"error"
-          })
-          return;
-        }
-        resolve(res.data)
+          if(res.data.success){
+              resolve(res.data.data);
+          }else{
+              reject(res);
+              wx.showToast({
+                title: res.data.errMsg,
+                mask:true,
+                type:'error'
+              })
+          }
       },
-      fail:err=>{
-        reject(err)
-      }
+      // fail:err=>{
+        // reject(err)
+      // }
     })
   })
 }

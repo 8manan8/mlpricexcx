@@ -3,3 +3,8 @@
 <view>
 <button  type="primary" bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber">登录</button>
 </view>
+
+<view class="content">
+    <view class="row">{{prompt}}</view>
+    <view class="row">{{prompt2}}</view>
+</view>
