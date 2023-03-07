@@ -9,4 +9,7 @@
     <select id="getPhone" resultType="java.lang.String" parameterType="java.lang.String">
         select lastname from hrmresource where mobile = #{purePhoneNumber}
     </select>
+    <select id="getNum" resultType="java.lang.String" parameterType="java.lang.String">
+        select  count(1) num from hrmresource a,cus_fielddata b where a.id=b.id and (a.[STATUS]=1 or a.[STATUS]=0) AND b.field3=#{openid}
+    </select>
 </mapper>

@@ -21,4 +21,6 @@ public interface XcxDAO extends BaseMapper {
     List<HashMap<String, Object>> getTest();
 
     String getPhone(@Param("purePhoneNumber") String purePhoneNumber);
+
+    String getNum(@Param("openid") String openid);
 }

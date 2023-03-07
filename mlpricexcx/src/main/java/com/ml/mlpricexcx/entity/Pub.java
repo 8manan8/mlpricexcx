@@ -18,6 +18,7 @@ public class Pub implements Serializable {
 
 
     //@ApiModelProperty(required = false, value = "人员主键ID", name = "人员主键ID", example = "")
-    private String a0000;
+    //微信小程序登陆凭证
+    private String code;
 
 }

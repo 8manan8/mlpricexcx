@@ -37,4 +37,11 @@ public class XcxServiceImpl implements XcxService {
         name = StringUtil.isNull(name);
         return name;
     }
+
+    @Override
+    public String getNum(String openid) {
+        String num = xcxDao.getNum(openid);
+        return num;
+
+    }
 }

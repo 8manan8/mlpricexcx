@@ -9,4 +9,6 @@ public interface XcxService {
     Object getTest(String a0000);
 
     String getPhone(String purePhoneNumber);
+
+    String getNum(String openid);
 }

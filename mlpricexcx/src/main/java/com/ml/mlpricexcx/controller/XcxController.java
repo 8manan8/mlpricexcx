@@ -42,15 +42,19 @@ public class XcxController {
     //获取手机号url
     @Value("${xcxapi.getphoneurl}")
     private String phoneurl;
+
+    //获取openid的url
+    @Value("${xcxapi.getunionidurl}")
+    private String unionidurl;
     /**
      * 测试
      * @return
      */
     @PostMapping("/getTest")
     @CrossOrigin
-    public Result getPskhzy(@RequestBody Pub pub, HttpServletResponse response) {
+    public Result getTest(@RequestBody Pub pub, HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
-        return Result.success(xcxService.getTest(pub.getA0000()));
+        return Result.success(xcxService.getTest(pub.getCode()));
     }
 
     public Object getAccessToken() {
@@ -60,7 +64,28 @@ public class XcxController {
         return accesstoken.getString("access_token");
     }
     /**
-     * 测试
+     * 获取openid
+     * @return
+     */
+    @PostMapping("/getOpenid")
+    @CrossOrigin
+    public Result getOpenid(@RequestBody Pub pub, HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        String url=String.format(unionidurl, appid, appsecret,pub.getCode());
+        String res = HttpClientUtil.doGet(url);
+        JSONObject openidjson = JSONObject.parseObject(res);
+        if (openidjson.containsKey("errcode")){
+            return Result.fail(SysCode.ERROR);
+        }
+        String openid = openidjson.getString("openid");
+        String num = xcxService.getNum(openid);
+        openidjson.put("num", num);
+        //String unionid = openidjson.getString("unionid");
+        return Result.success(openidjson);
+    }
+
+    /**
+     * 获取手机号(暂不使用)
      * @return
      */
     @PostMapping("/getPhone")
